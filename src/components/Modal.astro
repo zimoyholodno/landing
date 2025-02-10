@@ -1,0 +1,111 @@
+---
+interface Props {
+  // variant: "order" | "callus" | "success";
+  id: string;
+  form?: boolean;
+}
+
+const { id, form } = Astro.props;
+
+const Element = form ? "form" : "div";
+---
+
+<Element {id} class:list={["modal"]}>
+  <div class="modal__container">
+    <slot />
+  </div>
+</Element>
+
+<style is:global lang="scss">
+  .fancybox__backdrop {
+    background-color: #000;
+    
+  }
+
+  .modal {
+    display: none;
+    border-radius: 10px;
+    width: 100%;
+    max-width: min(calc(100% - 40px), 504px);
+    padding: 32px;
+    background-color: #001;
+    color: white;
+
+    .f-button.is-close-btn {
+      top: 8px;
+      right: 8px;
+      transition: color var(--transition);
+      opacity: 1;
+
+      --f-button-svg-width: 24px;
+      --f-button-svg-height: 24px;
+      --f-button-width: 40px;
+      --f-button-height: 40px;
+    //   --f-button-hover-color: #{$color-blue};
+
+      @include tablet {
+        --f-button-svg-width: 20px;
+        --f-button-svg-height: 20px;
+        --f-button-width: 24px;
+        --f-button-height: 24px;
+      }
+    }
+
+    @include tablet {
+      padding: 32px 24px;
+    }
+
+    &__container {
+      display: grid;
+      gap: 26px;
+
+      @include laptop {
+        gap: 20px;
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    &__texts {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &__inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      &-item{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        p {
+          color: rgba(255, 11, 0, 1);
+          font-size: 14px;
+        }
+      }
+    }
+  }
+</style>
+
+
+<script>
+  import { Fancybox } from "@fancyapps/ui";
+
+  Fancybox.bind(".modalbox", {
+    compact: false,
+    autoFocus: false,
+  });
+
+</script>

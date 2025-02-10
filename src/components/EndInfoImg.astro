@@ -1,0 +1,108 @@
+---
+
+---
+
+<div class="endInfoImg">
+    <div class="endInfoImg__items">
+        <div class="endInfoImg__img">
+            <span class="endInfoImg__image icon-analis"></span>
+        </div>
+        <div class="endInfoImg__text">
+            Мы используем точные алгоритмы и машинное обучение
+        </div>
+    </div>
+    <div class="endInfoImg__items">
+        <div class="endInfoImg__img">
+            <span class="endInfoImg__image icon-data"></span>
+        </div>
+        <div class="endInfoImg__text">
+            Консолидируем, проверяем, визуализируем и интерпретируем информацию.
+        </div>
+    </div>
+    <div class="endInfoImg__items">
+        <div class="endInfoImg__img">
+            <span class="endInfoImg__image icon-case"></span>
+        </div>
+        <div class="endInfoImg__text">
+            Разрабатываем рекомендации для эффективной промо-стратегии и
+            тактических решений
+        </div>
+    </div>
+</div>
+
+<style is:global lang="scss">
+    .endInfoImg {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        &__items {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            width: 390px;
+        }
+
+        &__img {
+            width: 73px;
+            height: 73px;
+            font-size: 50px;
+            background-color: rgba(224, 30, 46, 1);
+            border-radius: 100%;
+            text-align: center;
+            display: table;
+        }
+
+        &__image {
+            font-size: 37px;
+            color: #fff;
+        }
+        &__text {
+            display: flex;
+            width: 285px;
+            font-size: 16px;
+            font-weight: 400;
+            text-align: left;
+        }
+    }
+
+    @include laptop {
+        .endInfoImg {
+            &__items {
+                width: 500px;
+            }
+            &__text {
+                width: 427px;
+            }
+        }
+    }
+
+    @include phone {
+        .endInfoImg {
+            gap: 20px;
+
+            &__items {
+                gap: 20px;
+                width: 200px;
+            }
+
+            &__img {
+                width: 43px;
+                height: 43px;
+                font-size: 26px;
+            }
+
+            &__text {
+                width: 170px;
+                font-size: 12px;
+            }
+
+            &__image {
+                font-size: 17px;
+                color: #fff;
+            }
+        }
+    }
+</style>
